@@ -7,8 +7,8 @@ import resource
 
 class Download_Book():
 
-  def concatenate_pdf(self,book_title):
-  	fileList = os.listdir(os.getcwd())
+	def concatenate_pdf(self,book_title):
+		fileList = os.listdir(os.getcwd())
 		num_chapters=0
 		for i in range(1,40):
 			if not fileList.__contains__(book_title+str(i)+".pdf"):
@@ -16,7 +16,7 @@ class Download_Book():
 				print "numero capitulos"+str(num_chapters)
 				break
 
-		print"Uniendo pfs..."
+		print"Uniendo pdfs..."
 		output = PdfFileWriter()
 		for i in range (1,num_chapters):
 			f=open(book_title+str(i)+".pdf", "rb")
@@ -65,3 +65,4 @@ print '''
 url = raw_input('Book URL: ')
 resource.setrlimit(resource.RLIMIT_NOFILE, (500,-1))
 Download_Book().download(url)
+
