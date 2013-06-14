@@ -13,10 +13,10 @@ class Download_Book():
 		for i in range(1,40):
 			if not fileList.__contains__(book_title+str(i)+".pdf"):
 				num_chapters= i-1
-				print "numero capitulos"+str(num_chapters)
+				print "number of chapters: "+str(num_chapters)
 				break
 
-		print"Uniendo pdfs..."
+		print"linking pdfs..."
 		output = PdfFileWriter()
 		for i in range (1,num_chapters):
 			f=open(book_title+str(i)+".pdf", "rb")
@@ -34,9 +34,9 @@ class Download_Book():
 		output.write(outputStream)
 		outputStream.close()
 
-		print"Union finalizada"
+		print"Complete...Removing chapters"
 		for i in range(1,num_chapters+1):
-			print "borrando... capitulo: "+str(i)
+			print "Removing... chapter: "+str(i)
 			os.remove(book_title+str(i)+".pdf")
 
 	def download(self,link):
